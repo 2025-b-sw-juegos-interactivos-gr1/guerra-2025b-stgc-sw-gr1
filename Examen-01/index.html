@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cazafantasmas: Mision de Contencion</title>
+    
+    <!-- ================================================================== -->
+    <!-- ESTILOS CSS -->
+    <!-- ================================================================== -->
+    <style>
+        /* ---------------------------------------------------------------- */
+        /* CONFIGURACION GENERAL */
+        /* ---------------------------------------------------------------- */
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Canvas donde se renderiza el juego */
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+        
+        /* ---------------------------------------------------------------- */
+        /* INTERFAZ DE USUARIO (HUD) */
+        /* ---------------------------------------------------------------- */
+        
+        /* Contador de fantasmas capturados */
+        #contador {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 2px 2px 4px #000000;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 25px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+        
+        /* Panel de instrucciones */
+        #instrucciones {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px #000000;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            line-height: 1.8;
+        }
+        
+        #instrucciones h3 {
+            margin: 0 0 10px 0;
+            color: #00ff00;
+            font-size: 16px;
+        }
+        
+        #instrucciones .tecla {
+            display: inline-block;
+            background-color: #444;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        /* Mensaje de victoria */
+        #mensajeVictoria {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Arial, sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffff00;
+            text-shadow: 3px 3px 6px #000000;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px 50px;
+            border-radius: 15px;
+            display: none;
+            z-index: 2000;
+        }
+    </style>
+    
+    <!-- ================================================================== -->
+    <!-- LIBRERIAS DE BABYLON.JS -->
+    <!-- ================================================================== -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+</head>
+<body>
+    <!-- ==================================================================== -->
+    <!-- ELEMENTOS DE INTERFAZ -->
+    <!-- ==================================================================== -->
+    
+    <!-- Contador de fantasmas -->
+    <div id="contador">Fantasmas: 0/3</div>
+    
+    <!-- Panel de instrucciones -->
+    <div id="instrucciones">
+        <h3>Como Jugar</h3>
+        <span class="tecla">W</span><span class="tecla">A</span><span class="tecla">S</span><span class="tecla">D</span> Mover personaje<br>
+        <span class="tecla">ESPACIO</span> Atrapar / Entregar fantasma<br>
+        <span class="tecla">MOUSE</span> Rotar camara<br>
+        <span class="tecla">SCROLL</span> Zoom
+    </div>
+    
+    <!-- Mensaje de victoria -->
+    <div id="mensajeVictoria">GANASTE - Todos los fantasmas contenidos</div>
+    
+    <!-- Canvas del juego -->
+    <canvas id="renderCanvas"></canvas>
+    
+    <!-- ==================================================================== -->
+    <!-- SCRIPT PRINCIPAL DEL JUEGO -->
+    <!-- ==================================================================== -->
+    <script src="babylonScene.js"></script>
+</body>
+</html>
