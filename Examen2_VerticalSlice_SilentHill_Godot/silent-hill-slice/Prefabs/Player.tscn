@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dbepgtcedxah6"]
+
+[ext_resource type="Script" uid="uid://b6txvrgj3rrua" path="res://_Scripts/RadioSystem.gd" id="1_um8lo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ynan"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1980300928]
+script = ExtResource("1_um8lo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558479335]
+shape = SubResource("CapsuleShape3D_4ynan")
+
+[node name="RadioStream" type="AudioStreamPlayer3D" parent="." unique_id=1295295381]
