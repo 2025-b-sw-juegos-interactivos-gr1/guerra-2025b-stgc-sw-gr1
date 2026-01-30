@@ -4,10 +4,15 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ynan"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1980300928]
+[node name="Player" type="CharacterBody3D" unique_id=1980300928 groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17226815, 0)
 script = ExtResource("1_um8lo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558479335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1610084, 0)
 shape = SubResource("CapsuleShape3D_4ynan")
 
 [node name="RadioStream" type="AudioStreamPlayer3D" parent="." unique_id=1295295381]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=316605859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2201927, 3.7193155)

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cni1gqony2sif"]
+
+[ext_resource type="Script" uid="uid://deqlwtffw5u0w" path="res://_Scripts/ExitDoor.gd" id="1_2i1ml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apbbn"]
+size = Vector3(3.706543, 3.0233154, 0.9268799)
+
+[node name="ExitDoor" type="Area3D" unique_id=286877179]
+script = ExtResource("1_2i1ml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2069430587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37182617, 1.0116577, 0.03656006)
+shape = SubResource("BoxShape3D_apbbn")
