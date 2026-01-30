@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bxioagrh6q6nx"]
+
+[ext_resource type="Material" uid="uid://jmac1xtqj017" path="res://Materials/Mat_Cemento.tres" id="1_jpugs"]
+[ext_resource type="PackedScene" uid="uid://258m4jm6lej1" path="res://Prefabs/Escena-JugadorEnemigo.tscn" id="4_u7f1s"]
+
+[sub_resource type="Environment" id="Environment_hpp6f"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2
+volumetric_fog_albedo = Color(0.4117647, 0.41960785, 0.38431373, 1)
+
+[node name="Nivel_Callejon" type="Node3D" unique_id=347984144]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1098420762]
+use_collision = true
+
+[node name="suelo" type="CSGBox3D" parent="CSGCombiner3D" unique_id=630505494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049500003, -1.8724174)
+material_override = ExtResource("1_jpugs")
+size = Vector3(10, 0.001, 50)
+material = ExtResource("1_jpugs")
+
+[node name="ParedIzquierda" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1686030876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8347893, 4.908001, -1.9540746)
+material_override = ExtResource("1_jpugs")
+size = Vector3(1, 10, 50)
+material = ExtResource("1_jpugs")
+
+[node name="ParedDerecha" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1777062331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6236143, 5.0226974, -1.9751012)
+size = Vector3(1, 10, 50)
+material = ExtResource("1_jpugs")
+
+[node name="Caja1" type="CSGBox3D" parent="CSGCombiner3D" unique_id=368528742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3386512, 1.0119491, 0)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Caja5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=214211041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24657631, 0.9561423, -11.310366)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Caja6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=624432741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.799815, 0.9886502, -18.198673)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Caja2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1057716456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8480706, 0.9406409, 6.720889)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Caja7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=286128600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.662064, 1.0394708, -25.835236)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Caja3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1491208131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.334063, 0.9261974, 12.703282)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Caja4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1977581156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0708983, 0.9088682, 22.646635)
+size = Vector3(2, 2, 2)
+material = ExtResource("1_jpugs")
+
+[node name="Node3D" parent="." unique_id=1416162939 instance=ExtResource("4_u7f1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39313173, -0.2933566, -1.7941437)
+
+[node name="Player" parent="Node3D" index="0" unique_id=1980300928]
+transform = Transform3D(-0.9970715, 0, 0.07647548, 0, 1, 0, -0.07647548, 0, -0.9970715, -0.38484764, 0.60467386, -16.841103)
+
+[node name="ExitDoor" parent="Node3D" index="3" unique_id=286877179]
+transform = Transform3D(0.9969379, 0, 0.07819814, 0, 1, 0, -0.07819814, 0, 0.9969379, 1.1305318, 0.8218715, 24.28501)
+
+[node name="CSGBox3D" parent="Node3D" index="4" unique_id=1781536358]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1099627818]
+environment = SubResource("Environment_hpp6f")
+
+[editable path="Node3D"]
