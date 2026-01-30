@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://o7hq0t7fk7fn"]
 
 [ext_resource type="Script" uid="uid://ur4csx5nginv" path="res://_Scripts/EnemyAI.gd" id="1_8k53p"]
+[ext_resource type="PackedScene" uid="uid://b1qjlv04v3kk7" path="res://Models/Enemy.glb" id="2_gti1y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n345m"]
 
@@ -14,8 +15,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6282916, 0)
 script = ExtResource("1_8k53p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=716135348]
+visible = false
 mesh = SubResource("BoxMesh_n345m")
 surface_material_override/0 = SubResource("StandardMaterial3D_8k53p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1502550243]
 shape = SubResource("BoxShape3D_n345m")
+
+[node name="Sketchfab_Scene" parent="." unique_id=2141319615 instance=ExtResource("2_gti1y")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

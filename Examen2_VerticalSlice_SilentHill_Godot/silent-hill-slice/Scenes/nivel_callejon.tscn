@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bxioagrh6q6nx"]
 
+[ext_resource type="PackedScene" uid="uid://bhbp75r4e1hsa" path="res://Models/Trash.glb" id="1_7rrlu"]
 [ext_resource type="Material" uid="uid://jmac1xtqj017" path="res://Materials/Mat_Cemento.tres" id="1_jpugs"]
+[ext_resource type="PackedScene" uid="uid://hds7034lrw5l" path="res://Models/Sofa.glb" id="2_u7f1s"]
+[ext_resource type="Material" uid="uid://bvff3tigetydc" path="res://Materials/Mat_Invisible.tres" id="3_70g76"]
+[ext_resource type="PackedScene" uid="uid://b58uog7g2glag" path="res://Models/TV.glb" id="3_vypil"]
 [ext_resource type="PackedScene" uid="uid://258m4jm6lej1" path="res://Prefabs/Escena-JugadorEnemigo.tscn" id="4_u7f1s"]
 
 [sub_resource type="Environment" id="Environment_hpp6f"]
@@ -12,6 +16,24 @@ volumetric_fog_albedo = Color(0.4117647, 0.41960785, 0.38431373, 1)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1098420762]
 use_collision = true
+
+[node name="Sketchfab_Scene" parent="CSGCombiner3D" unique_id=1879326492 instance=ExtResource("1_7rrlu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.3595004, -0.008865118, 3.7534661)
+
+[node name="Sketchfab_Scene5" parent="CSGCombiner3D" unique_id=147511782 instance=ExtResource("1_7rrlu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.9676814, -0.22930485, 9.628899)
+
+[node name="Sketchfab_Scene2" parent="CSGCombiner3D" unique_id=556663524 instance=ExtResource("1_7rrlu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5238032, 0.20149338, -15.43313)
+
+[node name="Sketchfab_Scene4" parent="CSGCombiner3D" unique_id=500017506 instance=ExtResource("1_7rrlu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7088556, 0.056289136, -23.144945)
+
+[node name="Sketchfab_Scene3" parent="CSGCombiner3D" unique_id=718763959 instance=ExtResource("2_u7f1s")]
+transform = Transform3D(-0.9848077, 0, 0.17364822, 0, 1, 0, -0.17364822, 0, -0.9848077, -0.23166674, 0.07409531, -12.177731)
+
+[node name="Sketchfab_Scene6" parent="CSGCombiner3D" unique_id=2042304087 instance=ExtResource("3_vypil")]
+transform = Transform3D(-0.015, 0, -1.3113416e-09, 0, 0.015, 0, 1.3113416e-09, 0, -0.015, 3.2654815, 0.13504025, 12.70842)
 
 [node name="suelo" type="CSGBox3D" parent="CSGCombiner3D" unique_id=630505494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049500003, -1.8724174)
@@ -31,45 +53,43 @@ size = Vector3(1, 10, 50)
 material = ExtResource("1_jpugs")
 
 [node name="Caja1" type="CSGBox3D" parent="CSGCombiner3D" unique_id=368528742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3386512, 1.0119491, 0)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.232593, 0.97686553, 0.75197554)
+size = Vector3(2, 2, 2.5)
+material = ExtResource("3_70g76")
 
 [node name="Caja5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=214211041]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24657631, 0.9561423, -11.310366)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12151325, 0.8727269, -12.005866)
+size = Vector3(3, 1.5, 1.5)
+material = ExtResource("3_70g76")
 
 [node name="Caja6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=624432741]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.799815, 0.9886502, -18.198673)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
+size = Vector3(2, 2, 2.5)
+material = ExtResource("3_70g76")
 
 [node name="Caja2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1057716456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8480706, 0.9406409, 6.720889)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
+size = Vector3(2, 2, 2.5)
+material = ExtResource("3_70g76")
 
 [node name="Caja7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=286128600]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.662064, 1.0394708, -25.835236)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
+size = Vector3(2, 2, 2.5)
+material = ExtResource("3_70g76")
 
 [node name="Caja3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1491208131]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.334063, 0.9261974, 12.703282)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
-
-[node name="Caja4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1977581156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0708983, 0.9088682, 22.646635)
-size = Vector3(2, 2, 2)
-material = ExtResource("1_jpugs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.350343, 0.58974755, 12.703282)
+size = Vector3(1.5, 1, 1)
+material = ExtResource("3_70g76")
 
 [node name="Node3D" parent="." unique_id=1416162939 instance=ExtResource("4_u7f1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39313173, -0.2933566, -1.7941437)
 
 [node name="Player" parent="Node3D" index="0" unique_id=1980300928]
-transform = Transform3D(-0.9970715, 0, 0.07647548, 0, 1, 0, -0.07647548, 0, -0.9970715, -0.38484764, 0.60467386, -16.841103)
+transform = Transform3D(-0.9970527, 0, 0.076719075, 0, 1, 0, -0.076719075, 0, -0.9970527, -0.2865367, 0.60467386, -16.841103)
+
+[node name="Enemy" parent="Node3D" index="2" unique_id=311215296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87957406, 0.15008211, -20.705025)
 
 [node name="ExitDoor" parent="Node3D" index="3" unique_id=286877179]
 transform = Transform3D(0.9969379, 0, 0.07819814, 0, 1, 0, -0.07819814, 0, 0.9969379, 1.1305318, 0.8218715, 24.28501)
