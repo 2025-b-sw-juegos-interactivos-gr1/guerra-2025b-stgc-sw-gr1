@@ -1,15 +1,16 @@
 extends CharacterBody3D
 
 # --- CONFIGURACIÓN ---
-enum State { IDLE, STALK, ATTACK } # Definimos los estados posibles
+enum State {IDLE, STALK, ATTACK} # Definimos los estados posibles
 var current_state = State.IDLE
 
-@export var speed = 2.5           # Velocidad de persecución
+@export var speed = 2.5 # Velocidad de persecución
 @export var detection_range = 10.0 # A qué distancia te ve
-@export var attack_range = 1.5     # A qué distancia te pega
+@export var attack_range = 1.5 # A qué distancia te pega
 
 # Variable para guardar quién es el jugador
 var player = null
+var attack_cooldown = 0.0 # Cooldown para no atacar constantemente
 
 func _ready():
 	# Al iniciar, buscamos al jugador. 
@@ -22,6 +23,10 @@ func _physics_process(_delta):
 		return
 
 	var dist_to_player = global_position.distance_to(player.global_position)
+	
+	# Actualizar cooldown de ataque
+	if attack_cooldown > 0:
+		attack_cooldown -= _delta
 
 	# --- MÁQUINA DE ESTADOS ---
 	match current_state:
@@ -53,7 +58,12 @@ func _physics_process(_delta):
 				
 		State.ATTACK:
 			# Comportamiento: Hacer daño
-			print("Enemigo: ¡GOLPE!") # Aquí luego pondremos el feedback visual de Estefano
+			if attack_cooldown <= 0:
+				print("Enemigo: ¡GOLPE!")
+				# Llamar a la función de daño del jugador
+				if player.has_method("take_damage"):
+					player.take_damage()
+				attack_cooldown = 1.0 # 1 segundo entre golpes
 			
 			# Lógica simple de cooldown: Si el jugador se aleja un poco, volver a perseguir
 			if dist_to_player > attack_range:

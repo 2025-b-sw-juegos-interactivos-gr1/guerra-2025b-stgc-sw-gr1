@@ -7,9 +7,14 @@ const JUMP_VELOCITY = 4.5
 
 # --- CONFIGURACIÓN DE RADIO ---
 @onready var radio_audio = $RadioStream # Asegúrate de que este nodo exista
-@export var max_distance = 15.0 
-@export var min_distance = 2.0  
+@onready var damage_overlay = $CanvasLayer/DamageOverlay
+@onready var dolor_audio = $DolorAudio
+@export var max_distance = 15.0
+@export var min_distance = 2.0
 @export var enemy_group = "Enemy"
+
+# --- SISTEMA DE DAÑO ---
+var damage_cooldown = 0.0
 
 func _physics_process(delta):
 	# 1. APLICAR GRAVEDAD
@@ -36,6 +41,10 @@ func _physics_process(delta):
 
 	# 4. EJECUTAR LÓGICA DE RADIO
 	update_radio_tension()
+	
+	# 5. ACTUALIZAR COOLDOWN DE DAÑO
+	if damage_cooldown > 0:
+		damage_cooldown -= delta
 
 # Esta es la misma función que ya tenías, pero encapsulada para ordenar
 func update_radio_tension():
@@ -56,3 +65,22 @@ func update_radio_tension():
 	else:
 		if radio_audio:
 			radio_audio.volume_db = linear_to_db(0)
+
+# Función para recibir daño - llamada por el enemigo
+func take_damage():
+	if damage_cooldown <= 0:
+		# Reproducir sonido de dolor
+		if dolor_audio:
+			dolor_audio.play()
+		
+		# Mostrar el overlay rojo
+		if damage_overlay:
+			damage_overlay.visible = true
+			# Crear un tween para hacer el efecto de parpadeo
+			var tween = create_tween()
+			tween.tween_property(damage_overlay, "modulate:a", 0.5, 0.1)
+			tween.tween_property(damage_overlay, "modulate:a", 0.0, 0.3)
+			tween.tween_callback(func(): damage_overlay.visible = false)
+		
+		# Establecer cooldown para no recibir daño constantemente
+		damage_cooldown = 0.5
