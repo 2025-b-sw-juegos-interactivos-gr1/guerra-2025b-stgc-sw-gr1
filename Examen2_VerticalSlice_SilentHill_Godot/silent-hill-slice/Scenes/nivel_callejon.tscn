@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://bvff3tigetydc" path="res://Materials/Mat_Invisible.tres" id="3_70g76"]
 [ext_resource type="PackedScene" uid="uid://b58uog7g2glag" path="res://Models/TV.glb" id="3_vypil"]
 [ext_resource type="PackedScene" uid="uid://258m4jm6lej1" path="res://Prefabs/Escena-JugadorEnemigo.tscn" id="4_u7f1s"]
+[ext_resource type="PackedScene" uid="uid://brq1vminp0g11" path="res://Models/door_metallic_parking_garden_villa.glb" id="7_fiiws"]
 
 [sub_resource type="Environment" id="Environment_hpp6f"]
 volumetric_fog_enabled = true
@@ -99,5 +100,8 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1099627818]
 environment = SubResource("Environment_hpp6f")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1191112034 instance=ExtResource("7_fiiws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0597134, -0.049001455, 22.653685)
 
 [editable path="Node3D"]
