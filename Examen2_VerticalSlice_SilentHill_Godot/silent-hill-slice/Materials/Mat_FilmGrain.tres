@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://Shaders/film_grain.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/grain_amount = 0.25
+shader_parameter/scan_line_amount = 0.15
+shader_parameter/vignette_amount = 0.6

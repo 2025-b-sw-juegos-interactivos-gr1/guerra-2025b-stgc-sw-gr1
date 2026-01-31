@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b6txvrgj3rrua" path="res://_Scripts/RadioSystem.gd" id="1_um8lo"]
 [ext_resource type="PackedScene" uid="uid://yg1ndxvmvy8f" path="res://Models/Player.glb" id="2_x3d5u"]
+[ext_resource type="Material" path="res://Materials/Mat_FilmGrain.tres" id="3_grain"]
+[ext_resource type="AudioStream" path="res://Audio/suspenso.mp3" id="4_suspenso"]
+[ext_resource type="AudioStream" path="res://Audio/dolor.mp3" id="5_dolor"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ynan"]
 
@@ -15,8 +18,38 @@ shape = SubResource("CapsuleShape3D_4ynan")
 
 [node name="RadioStream" type="AudioStreamPlayer3D" parent="." unique_id=1295295381]
 
+[node name="SuspensoAudio" type="AudioStreamPlayer" parent="." unique_id=4445556667]
+stream = ExtResource("4_suspenso")
+autoplay = true
+volume_db = -5.0
+
+[node name="DolorAudio" type="AudioStreamPlayer" parent="." unique_id=5556667778]
+stream = ExtResource("5_dolor")
+volume_db = 0.0
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=316605859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2201927, 3.7193155)
 
 [node name="Sketchfab_Scene" parent="." unique_id=1229834901 instance=ExtResource("2_x3d5u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2123456789]
+
+[node name="FilmGrainOverlay" type="ColorRect" parent="CanvasLayer" unique_id=3345678901]
+material = ExtResource("3_grain")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DamageOverlay" type="ColorRect" parent="CanvasLayer" unique_id=2234567890]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0.3)
